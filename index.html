@@ -13,7 +13,7 @@
     body {
     margin: 0;
     min-height: 200vh;
-    background-color: #0b0716;
+    background-color: #6e00fa;
     color: white;
     font-family: monospace;
     }
@@ -59,12 +59,32 @@
     .content {
     position: relative;
     z-index: 1;
-    padding: 40px;
+    padding: 20px;
+  }
+    .top {
+    backdrop-filter: blur(4px);
+    background: rgba( 164, 255, 255, 0.15 );
   }
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    .name span{
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(-15px);
+        animation: faceCase 0.7s ease-in forwards;
+        animation-delay:var(--delay);     
+    }
+    @keyframes faceCase{
+    0%{
+        opacity: 0%;    
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0);
+    }  
     }
     h1,h2,h3{
         font-family: Byte;
@@ -84,8 +104,10 @@
       color: white;
     }
     .custom-line{
-      color: white;
+      background-color: white;
       width: 150%;
+      margin: 0;
+      height: 5px;
     }
     .linkbutton{
       float: right;
@@ -109,24 +131,36 @@
     <div class="layer-front"></div>
   </div>
 
-<div class="content">
+<div class="content top">
   <div class="header-container">
-    <h1>Mario Simjanoski</h1>
+    <h1 id="name" class="name">Mario Simjanoski</h1>
     <a class="linkbutton" href="https://google.com">Example1</a>
   </div>
-  <hr class="custom-line">
 </div>
 
+<div class="custom-line"></div>
+
 <script>
+    var nameC = document.getElementById('name');
+    var text = nameC.innerText;
+
+    nameC.innerHTML = "";
+    [...text].forEach((char,index) =>{
+    const span = document.createElement('span');
+    span.innerHTML = char === ' ' ? '&nbsp;' : char;
+    span.style.setProperty('--delay', `${index * 0.1}s`);
+    nameC.appendChild(span);
+    });
+
     const layerBack = document.querySelector('.layer-back');
     const layerMid = document.querySelector('.layer-mid');
     const layerFront = document.querySelector('.layer-front');
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      layerBack.style.transform = `translateY(${scrollY * 0}px)`;
-      layerMid.style.transform = `translateY(${scrollY * 0.15}px)`;
-      layerFront.style.transform = `translateY(${scrollY * 0.25}px)`;
+      layerBack.style.transform = `translateY(${scrollY * 0.01}px)`;
+      layerMid.style.transform = `translateY(${scrollY * 0.20}px)`;
+      layerFront.style.transform = `translateY(${scrollY * 0.40}px)`;
     });
   </script>
 
