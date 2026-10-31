@@ -65,11 +65,15 @@
     z-index: 1;
     padding: 20px;
   }
+    .content img{
+    width: 48.5%;    
+    }
     .top {
     backdrop-filter: blur(4px);
     background: rgba( 164, 255, 255, 0.15 );
   }
     .box{
+    display: inline-block;
     backdrop-filter: blur(4px);
     background: rgba( 85, 100, 100, 0.35 );
     width: 45%;
@@ -132,6 +136,10 @@
       font-size: 50px;
       color: white;
     }
+    h3{
+      font-size: 30px;
+      color: white;
+    }
     .custom-line{
       background-color: white;
       width: 100%;
@@ -173,10 +181,10 @@
 <div class="content top">
   <div class="header-container">
     <h1 id="name" class="name">Mario Simjanoski</h1>
-<div class="nav-links right">
-    <a class="linkbutton" href="">Placeholder</a>
-    <a class="linkbutton" href="">Placeholder</a>
-</div>
+        <div class="nav-links right">
+            <a class="linkbutton" href="">Placeholder</a>
+            <a class="linkbutton" href="">Placeholder</a>
+        </div>
   </div>
 </div>
 
@@ -187,12 +195,23 @@
     <p>I'm an aspiring game developer, software developer, 3d modeler and programming language polyglot.<br>
         I have a fair bit of experience with web development through HTML, CSS, JS, PHP and MySQL.<br>
         I have also hosted sites on my personal computers in the past. I have made multiple projects in Java and C++,<br>
-        and I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am<br> 
-        working on a low poly asset pack in blender, and slowly improving existing projects, or switching to other IDE's<br>
-        as I am conflicted with my current setup for C++.</p>
+        as well as a few simple game prototypes on Godot using GDScript, for which I made all the assets used in them.<br>
+        I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am currently<br> 
+        working on a low poly asset pack in blender, and slowly improving and revisiting existing projects, or switching to<br> 
+        other IDE's as I am conflicted with my current setup for C++.</p>
 </div>
 <div class="content box right">
     <h2>A bit of Info on my cool projects!</h2>
+    <center><h3>Genetic Algorithm</h3></center>
+      <div class="content right">
+        <img class="left" src="gifs/InitialGenerations.gif">
+        <img class="right" src="gifs/EvolvedFurther.gif">
+      </div>
+    <p>I made a simple genetic algorithm program that simulates entities moving through a maze, and selects for entities that<br>
+      get closest to the other end of the maze. The project is written entirely in Java and contains simple classes for initializing<br>
+      the maze, finding a valid path, basic movement and positioning via Vector2 and of course I use Swing and its drawing features to<br>
+      visualize everything.<br>
+      The project is available for download and is recieving frequent updates on my github page <a href="https://github.com/simjanoskimario/Genetic-Algorithm">here</a></p>
 </div>
 <script>
     var nameC = document.getElementById('name');
@@ -220,3 +239,4 @@
 
 </body>
 </html>
+
