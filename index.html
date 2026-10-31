@@ -17,6 +17,8 @@
     color: white;
     font-family: monospace;
     }
+
+
     .parallax-container {
     position: fixed;
     top: 0;
@@ -56,6 +58,8 @@
     background-size: cover;
     image-rendering: pixelated;
   }
+
+
     .content {
     position: relative;
     z-index: 1;
@@ -65,9 +69,31 @@
     backdrop-filter: blur(4px);
     background: rgba( 164, 255, 255, 0.15 );
   }
+    .box{
+    backdrop-filter: blur(4px);
+    background: rgba( 85, 100, 100, 0.35 );
+    width: 45%;
+    padding: 0px 20px 0px 20px;
+    margin: 20px;
+    border: 5px solid white;
+    }
+    .nav-links {
+      display: flex;
+      margin-left: 20px;
+      gap: 30px;
+      align-items: center;
+    }
+    .right{
+    float: right;    
+    }
+    .left{
+    float: left;    
+    }
+
+
     .header-container {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
     }
     .name span{
@@ -86,26 +112,29 @@
         transform: translateY(0);
     }  
     }
+
+
+
     h1,h2,h3{
         font-family: Byte;
     }
     p,a{
         font-family: Blocky;
-        font-size: 40px;    
+        font-size: 30px;    
     }
     h1{
-      margin-top: 2px;
+      margin-top: 1px;
       margin-bottom: 2px;
       font-size: 70px;
       color: white;
     }
     h2{
-      font-size: 30px;
+      font-size: 50px;
       color: white;
     }
     .custom-line{
       background-color: white;
-      width: 150%;
+      width: 100%;
       margin: 0;
       height: 5px;
     }
@@ -119,6 +148,16 @@
     }
       .linkbutton:active{
       color: red;
+    }
+
+    @media (max-width:1000px){
+        .box{
+            width: 85%;
+            float: none;
+        }
+        .header-container{
+            display: inline-block;
+        } 
     }
   </style>
 </head>
@@ -134,12 +173,27 @@
 <div class="content top">
   <div class="header-container">
     <h1 id="name" class="name">Mario Simjanoski</h1>
-    <a class="linkbutton" href="https://google.com">Example1</a>
+<div class="nav-links right">
+    <a class="linkbutton" href="">Placeholder</a>
+    <a class="linkbutton" href="">Placeholder</a>
+</div>
   </div>
 </div>
 
 <div class="custom-line"></div>
 
+<div class="content box left">
+    <h2>Short summary of me and my current projects</h2>
+    <p>I'm an aspiring game developer, software developer, 3d modeler and programming language polyglot.<br>
+        I have a fair bit of experience with web development through HTML, CSS, JS, PHP and MySQL.<br>
+        I have also hosted sites on my personal computers in the past. I have made multiple projects in Java and C++,<br>
+        and I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am<br> 
+        working on a low poly asset pack in blender, and slowly improving existing projects, or switching to other IDE's<br>
+        as I am conflicted with my current setup for C++.</p>
+</div>
+<div class="content box right">
+    <h2>A bit of Info on my cool projects!</h2>
+</div>
 <script>
     var nameC = document.getElementById('name');
     var text = nameC.innerText;
