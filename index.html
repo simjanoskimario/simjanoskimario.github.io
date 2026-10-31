@@ -3,31 +3,89 @@
 <title>Mario's Portfolio</title>
   <style>
     @font-face{
-      font-family: Metropolis_Regular;
-      src: url(/Metropolis/Metropolis-Regular.otf);
+      font-family: Byte;
+      src: url(Fonts/ByteBounce.ttf);
     }
-    body{
-      background-color:#24130a;
+    @font-face{
+      font-family: Blocky;
+      src: url(Fonts/BlockBlueprint.ttf);
     }
+    body {
+    margin: 0;
+    min-height: 200vh;
+    background-color: #0b0716;
+    color: white;
+    font-family: monospace;
+    }
+    .parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; 
+  }
+  .layer-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(Images/nbackground.png) no-repeat center center;
+    background-size: cover;
+    image-rendering: pixelated;
+  }
+    .layer-mid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(Images/nmiddleground.png) no-repeat center bottom;
+    background-size: cover;
+    image-rendering: pixelated;
+  }
+    .layer-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(Images/nforeground.png) no-repeat center bottom;
+    background-size: cover;
+    image-rendering: pixelated;
+  }
+    .content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+  }
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+    h1,h2,h3{
+        font-family: Byte;
+    }
+    p,a{
+        font-family: Blocky;
+        font-size: 40px;    
+    }
     h1{
-      margin-left: 2px;
-      font-size: 30px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      font-size: 70px;
       color: white;
-      font-family: Metropolis_Regular;
     }
     h2{
-      font-size: 20px;
+      font-size: 30px;
       color: white;
-      font-family: Metropolis_Regular;
     }
     .custom-line{
       color: white;
-      margin-left: 0px;
+      width: 150%;
     }
     .linkbutton{
       float: right;
@@ -44,11 +102,33 @@
 </head>
 
 <body>
+
+<div class="parallax-container">
+    <div class="layer-back"></div>
+    <div class="layer-mid"></div>
+    <div class="layer-front"></div>
+  </div>
+
+<div class="content">
   <div class="header-container">
     <h1>Mario Simjanoski</h1>
-    <h2 class="linkbutton"><a class="linkbutton" href="https://google.com">Example1</a></h2>
+    <a class="linkbutton" href="https://google.com">Example1</a>
   </div>
   <hr class="custom-line">
-</body>
+</div>
 
+<script>
+    const layerBack = document.querySelector('.layer-back');
+    const layerMid = document.querySelector('.layer-mid');
+    const layerFront = document.querySelector('.layer-front');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      layerBack.style.transform = `translateY(${scrollY * 0}px)`;
+      layerMid.style.transform = `translateY(${scrollY * 0.15}px)`;
+      layerFront.style.transform = `translateY(${scrollY * 0.25}px)`;
+    });
+  </script>
+
+</body>
 </html>
