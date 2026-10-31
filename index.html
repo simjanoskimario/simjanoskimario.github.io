@@ -2,6 +2,10 @@
 <head>
 <title>Mario's Portfolio</title>
   <style>
+    *{
+      box-sizing: border-box;
+    }
+
     @font-face{
       font-family: Byte;
       src: url(Fonts/ByteBounce.ttf);
@@ -73,13 +77,13 @@
     background: rgba( 164, 255, 255, 0.15 );
   }
     .box{
-    display: inline-block;
-    backdrop-filter: blur(4px);
-    background: rgba( 85, 100, 100, 0.35 );
-    width: 45%;
-    padding: 0px 20px 0px 20px;
-    margin: 20px;
-    border: 5px solid white;
+        display: inline-block;
+        backdrop-filter: blur(4px);
+        background: rgba( 85, 100, 100, 0.35 );
+        width: 49.3%;
+        padding: 0px 20px 0px 20px;
+        margin: 20px auto;
+        border: 5px solid white;
     }
     .nav-links {
       display: flex;
@@ -158,10 +162,14 @@
       color: red;
     }
 
-    @media (max-width:1000px){
-        .box{
-            width: 85%;
-            float: none;
+    @media (max-width:1598px){
+        .box {
+          width: 100%;
+          padding: 20px;
+          margin: 20px auto;
+          border: 5px solid white;
+          box-sizing: border-box;
+          float: none;          
         }
         .header-container{
             display: inline-block;
