@@ -155,6 +155,26 @@
       font-size: 40px;
       color: white;
     }
+    button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 40px;
+      font-family: Blocky;
+      padding: 4px 2px 1px 2px;
+      background-color: transparent;
+      border: 3px solid white;
+      border-bottom: 5px solid white;
+      border-radius: 50%;
+      transition-duration: 0.3s;
+    }
+    button:hover{
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    button:active{
+      border-bottom: 3px solid white;
+    }
     .custom-line{
       background-color: white;
       width: 100%;
@@ -200,6 +220,7 @@
         <div class="nav-links right">
             <a class="linkbutton" href="">Placeholder</a>
             <a class="linkbutton" href="">Placeholder</a>
+            <button class="right" onclick="changeMode()" id="modebutton">🌙</button>
         </div>
   </div>
 </div>
@@ -208,13 +229,13 @@
 
 <div class="content box left">
     <h2>Short summary of me and my current projects</h2>
-    <p>I'm an aspiring game developer, software developer, 3d modeler and programming language polyglot.<br>
-        I have a fair bit of experience with web development through HTML, CSS, JS, PHP and MySQL.<br>
-        I have also hosted sites on my personal computers in the past. I have made multiple projects in Java and C++,<br>
-        as well as a few simple game prototypes on Godot using GDScript, for which I made all the assets used in them.<br>
-        I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am currently<br> 
-        working on a low poly asset pack in blender, and slowly improving and revisiting existing projects, or switching to<br> 
-        other IDE's as I am conflicted with my current setup for C++.</p>
+    <p>I'm an aspiring game developer, software developer, 3d modeler and programming language polyglot.
+        I have a fair bit of experience with web development through HTML, CSS, JS, PHP and MySQL.
+        I have also hosted sites on my personal computers in the past. I have made multiple projects in Java and C++,
+        as well as a few simple game prototypes on Godot using GDScript, for which I made all the assets used in them.
+        I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am currently
+        working on a low poly asset pack in blender, and slowly improving and revisiting existing projects, or switching to
+        other IDE's as I am conflicted with my current setup for C++.
 </div>
 <div class="content box right">
     <h2>A bit of Info on my cool projects!</h2>
@@ -223,20 +244,20 @@
         <img class="left" src="gifs/InitialGenerations.gif">
         <img class="right" src="gifs/EvolvedFurther.gif">
       </div>
-    <p>I made a simple genetic algorithm program that simulates entities moving through a maze, and selects for entities that<br>
-      get closest to the other end of the maze. The project is written entirely in Java and contains simple classes for initializing<br>
-      the maze, finding a valid path, basic movement and positioning via Vector2 and of course I use Swing and its drawing features to<br>
-      visualize everything.<br>
+    <p>I made a simple genetic algorithm program that simulates entities moving through a maze, and selects for entities that
+      get closest to the other end of the maze. The project is written entirely in Java and contains simple classes for initializing
+      the maze, finding a valid path, basic movement and positioning via Vector2 and of course I use Swing and its drawing features to
+      visualize everything.
       The project is available for download and is recieving frequent updates on my github page <a href="https://github.com/simjanoskimario/Genetic-Algorithm">here</a></p>
 
     <center><h3>Low Poly Fruit Asset Pack</h3></center>
       <div class="content">
         <center><img src="Images/Poster.png"></center>
       </div>
-    <p>These simple low poly fruits were made in blender with extremely simple texturing and modeling techniques. I have made around 12<br>
-      assets thus far inluding a peach, pear, cherries, grapes, dragonfruit, basket, cornucopia, etc. and these models are perfect for a<br>
-      Market or Farm setting. Once the pack is complete a few assets will be hosted on my github and on itch.io for free, while the full<br>
-      pack will be for sale for anywhere between 1-4 euros, depending on the amount of assets I end up making.<br>
+    <p>These simple low poly fruits were made in blender with extremely simple texturing and modeling techniques. I have made around 12
+      assets thus far inluding a peach, pear, cherries, grapes, dragonfruit, basket, cornucopia, etc. and these models are perfect for a
+      Market or Farm setting. Once the pack is complete a few assets will be hosted on my github and on itch.io for free, while the full
+      pack will be for sale for anywhere between 1-4 euros, depending on the amount of assets I end up making.
       The assets are not yet available, more are underway.</p>
 </div>
 <div class="content box left">
@@ -268,6 +289,31 @@
         ticking = true;
       }
     });
+
+    var dm = false;
+    var b = document.querySelectorAll(".box");
+
+    window.changeMode = function(){
+      dm = !dm;
+      if (dm) {
+        document.body.style.backgroundImage = "linear-gradient(green, lime, lightgreen, green)";
+        document.body.style.animation = "flowingGradient 40s ease infinite";
+        document.getElementById('background-canvas').style.background = "url(Images/bg1.png)";
+        document.getElementById('background-canvas').style.backgroundBlendMode = "color-burn";
+        document.getElementById('background-canvas').style.opacity = "95%";
+        document.getElementById('modebutton').innerText = "☀️";
+        b.forEach(box => {box.style.background = "black"; box.style.opacity = "75%";});
+      }
+      else {
+        document.body.style.backgroundImage = "linear-gradient(darkgreen, maroon, navy, darkgreen)";
+        document.body.style.animation = "flowingGradient 40s ease infinite";
+        document.getElementById('background-canvas').style.background = "url(Images/bg.png)";
+        document.getElementById('background-canvas').style.backgroundBlendMode = "lighten";
+        document.getElementById('background-canvas').style.opacity = "50%";
+        document.getElementById('modebutton').innerText = "🌙";
+        b.forEach(box => {box.style.background = "rgba( 85, 100, 100, 0.35)";  box.style.opacity = "100%";});
+      }
+    }
   </script>
 
 </body>
