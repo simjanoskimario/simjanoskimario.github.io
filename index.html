@@ -55,7 +55,7 @@
       height: 100%;
       z-index: -1;
       pointer-events: none;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(8px);
       -webkit-mask-image: radial-gradient(circle at center, transparent 25%, black 35%);
       mask-image: radial-gradient(circle at center, transparent 25%, black 35%);
@@ -84,17 +84,18 @@
     width: 48.5%;    
     }
     .top {
+    position: fixed;
+    width: 100%;
     backdrop-filter: blur(4px);
     background: rgba( 164, 255, 255, 0.15 );
+    z-index: 2;
   }
     .box{
         display: inline-block;
-        backdrop-filter: blur(4px);
-        background: rgba( 85, 100, 100, 0.35 );
+        background: none;
         width: 49.3%;
         padding: 0px 20px 0px 20px;
         margin: 20px auto;
-        border: 5px solid white;
     }
     .nav-links {
       display: flex;
@@ -175,10 +176,15 @@
     button:active{
       border-bottom: 3px solid white;
     }
+    main{
+      padding-top: 120px;
+    }
     .custom-line{
+      position: absolute;
       background-color: white;
+      left: 0;
+      top: 120px;
       width: 100%;
-      margin: 0;
       height: 5px;
     }
     .linkbutton{
@@ -223,47 +229,50 @@
             <button class="right" onclick="changeMode()" id="modebutton">🌙</button>
         </div>
   </div>
+  <div class="custom-line"></div>
 </div>
 
-<div class="custom-line"></div>
+<main>
 
-<div class="content box left">
-    <h2>Short summary of me and my current projects</h2>
-    <p>I'm an aspiring game developer, software developer, 3d modeler and programming language polyglot.
-        I have a fair bit of experience with web development through HTML, CSS, JS, PHP and MySQL.
-        I have also hosted sites on my personal computers in the past. I have made multiple projects in Java and C++,
-        as well as a few simple game prototypes on Godot using GDScript, for which I made all the assets used in them.
-        I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am currently
-        working on a low poly asset pack in blender, and slowly improving and revisiting existing projects, or switching to
-        other IDE's as I am conflicted with my current setup for C++.
-</div>
-<div class="content box right">
-    <h2>A bit of Info on my cool projects!</h2>
-    <center><h3>Genetic Algorithm</h3></center>
-      <div class="content right">
-        <img class="left" src="gifs/InitialGenerations.gif">
-        <img class="right" src="gifs/EvolvedFurther.gif">
-      </div>
-    <p>I made a simple genetic algorithm program that simulates entities moving through a maze, and selects for entities that
-      get closest to the other end of the maze. The project is written entirely in Java and contains simple classes for initializing
-      the maze, finding a valid path, basic movement and positioning via Vector2 and of course I use Swing and its drawing features to
-      visualize everything.
-      The project is available for download and is recieving frequent updates on my github page <a href="https://github.com/simjanoskimario/Genetic-Algorithm">here</a></p>
+    <div class="content box left">
+        <h2>Short summary of me and my current projects</h2>
+        <p>I'm an aspiring game developer, software developer, 3d modeler and programming language polyglot.
+            I have a fair bit of experience with web development through HTML, CSS, JS, PHP and MySQL.
+            I have also hosted sites on my personal computers in the past. I have made multiple projects in Java and C++,
+            as well as a few simple game prototypes on Godot using GDScript, for which I made all the assets used in them.
+            I am currently hosting 1 project, that being my Genetic Algorithm on my github page. Other than that I am currently
+            working on a low poly asset pack in blender, and slowly improving and revisiting existing projects, or switching to
+            other IDE's as I am conflicted with my current setup for C++.
+    </div>
+    <div class="content box right">
+        <h2>A bit of Info on my cool projects!</h2>
+        <center><h3>Genetic Algorithm</h3></center>
+          <div class="content right">
+            <img class="left" src="gifs/InitialGenerations.gif">
+            <img class="right" src="gifs/EvolvedFurther.gif">
+          </div>
+        <p>I made a simple genetic algorithm program that simulates entities moving through a maze, and selects for entities that
+          get closest to the other end of the maze. The project is written entirely in Java and contains simple classes for initializing
+          the maze, finding a valid path, basic movement and positioning via Vector2 and of course I use Swing and its drawing features to
+          visualize everything.
+          The project is available for download and is recieving frequent updates on my github page <a href="https://github.com/simjanoskimario/Genetic-Algorithm">here</a></p>
 
-    <center><h3>Low Poly Fruit Asset Pack</h3></center>
-      <div class="content">
-        <center><img src="Images/Poster.png"></center>
-      </div>
-    <p>These simple low poly fruits were made in blender with extremely simple texturing and modeling techniques. I have made around 12
-      assets thus far inluding a peach, pear, cherries, grapes, dragonfruit, basket, cornucopia, etc. and these models are perfect for a
-      Market or Farm setting. Once the pack is complete a few assets will be hosted on my github and on itch.io for free, while the full
-      pack will be for sale for anywhere between 1-4 euros, depending on the amount of assets I end up making.
-      The assets are not yet available, more are underway.</p>
-</div>
-<div class="content box left">
-    <h2>Title3</h2>
-    <p>Placeholder</p>
-</div>
+        <center><h3>Low Poly Fruit Asset Pack</h3></center>
+          <div class="content">
+            <center><img src="Images/Poster.png"></center>
+          </div>
+        <p>These simple low poly fruits were made in blender with extremely simple texturing and modeling techniques. I have made around 12
+          assets thus far inluding a peach, pear, cherries, grapes, dragonfruit, basket, cornucopia, etc. and these models are perfect for a
+          Market or Farm setting. Once the pack is complete a few assets will be hosted on my github and on itch.io for free, while the full
+          pack will be for sale for anywhere between 1-4 euros, depending on the amount of assets I end up making.
+          The assets are not yet available, more are underway.</p>
+    </div>
+    <div class="content box left">
+        <h2>Title3</h2>
+        <p>Placeholder</p>
+    </div>
+
+</main>
 <script type="module">
     var nameC = document.getElementById('name');
     var text = nameC.innerText;
@@ -302,7 +311,6 @@
         document.getElementById('background-canvas').style.backgroundBlendMode = "color-burn";
         document.getElementById('background-canvas').style.opacity = "95%";
         document.getElementById('modebutton').innerText = "☀️";
-        b.forEach(box => {box.style.background = "black"; box.style.opacity = "75%";});
       }
       else {
         document.body.style.backgroundImage = "linear-gradient(darkgreen, maroon, navy, darkgreen)";
@@ -311,7 +319,6 @@
         document.getElementById('background-canvas').style.backgroundBlendMode = "lighten";
         document.getElementById('background-canvas').style.opacity = "50%";
         document.getElementById('modebutton').innerText = "🌙";
-        b.forEach(box => {box.style.background = "rgba( 85, 100, 100, 0.35)";  box.style.opacity = "100%";});
       }
     }
   </script>
