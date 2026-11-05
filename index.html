@@ -72,13 +72,14 @@
       pointer-events: none;
       opacity: 50%;
       filter: blur(2px);
+      background-size: cover;
       background-image: url(Images/bg.png);
       background-blend-mode: lighten;
     }
     .content {
     position: relative;
     z-index: 1;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
   }
     .content img{
     width: 48.5%;    
@@ -86,6 +87,7 @@
     .top {
     position: fixed;
     width: 100%;
+    height: auto;
     backdrop-filter: blur(4px);
     background: rgba( 164, 255, 255, 0.15 );
     z-index: 2;
@@ -180,12 +182,12 @@
       padding-top: 120px;
     }
     .custom-line{
-      position: absolute;
+      position: relative;
       background-color: white;
-      left: 0;
-      top: 120px;
-      width: 100%;
-      height: 5px;
+      margin-top: 5px;
+      left: -5%;
+      width: 110%;
+      height: 10px;
     }
     .linkbutton{
       float: right;
@@ -306,7 +308,6 @@
       dm = !dm;
       if (dm) {
         document.body.style.backgroundImage = "linear-gradient(green, lime, lightgreen, green)";
-        document.body.style.animation = "flowingGradient 40s ease infinite";
         document.getElementById('background-canvas').style.background = "url(Images/bg1.png)";
         document.getElementById('background-canvas').style.backgroundBlendMode = "color-burn";
         document.getElementById('background-canvas').style.opacity = "95%";
@@ -314,7 +315,6 @@
       }
       else {
         document.body.style.backgroundImage = "linear-gradient(darkgreen, maroon, navy, darkgreen)";
-        document.body.style.animation = "flowingGradient 40s ease infinite";
         document.getElementById('background-canvas').style.background = "url(Images/bg.png)";
         document.getElementById('background-canvas').style.backgroundBlendMode = "lighten";
         document.getElementById('background-canvas').style.opacity = "50%";
