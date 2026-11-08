@@ -141,6 +141,7 @@
         font-family: Byte;
     }
     p,a{
+        color: white;
         font-family: Blocky;
         font-size: 30px;    
     }
@@ -206,7 +207,6 @@
           width: 100%;
           padding: 20px;
           margin: 20px auto;
-          border: 5px solid white;
           box-sizing: border-box;
           float: none;          
         }
@@ -226,8 +226,8 @@
   <div class="header-container">
     <h1 id="name" class="name">Mario Simjanoski</h1>
         <div class="nav-links right">
-            <a class="linkbutton" href="">Placeholder</a>
-            <a class="linkbutton" href="">Placeholder</a>
+            <a class="linkbutton" href="index.html">Projects</a>
+            <a class="linkbutton" href="contact.html">Contact</a>
             <button class="right" onclick="changeMode()" id="modebutton">🌙</button>
         </div>
   </div>
@@ -258,7 +258,12 @@
           the maze, finding a valid path, basic movement and positioning via Vector2 and of course I use Swing and its drawing features to
           visualize everything.
           The project is available for download and is recieving frequent updates on my github page <a href="https://github.com/simjanoskimario/Genetic-Algorithm">here</a></p>
-
+          <center><h3>Casher - A (for now) simple Hash table database</h3></center>
+          <div><center><img src="Images/Casher.png"></center></div>
+          <p>Casher is a very early in development database program developed with C++, the program supports very basic data structure operations such as SET, GET, DEL and of course the terminal has an EXIT command that leaves the app entirely. Upcoming features include an EXPORT command, a UI, letting the database accept many more things other than a simple string and many more features. Development is slow with this project so updates will take a lot longer, available <a href="https://github.com/simjanoskimario/Casher">here</a></p>
+    </div>
+    <div class="content box left">
+      <h2>Other Projects (3D Models, Photography, etc.)</h2>
         <center><h3>Low Poly Fruit Asset Pack</h3></center>
           <div class="content">
             <center><img src="Images/Poster.png"></center>
@@ -269,12 +274,9 @@
           pack will be for sale for anywhere between 1-4 euros, depending on the amount of assets I end up making.
           The assets are not yet available, more are underway.</p>
     </div>
-    <div class="content box left">
-        <h2>Title3</h2>
-        <p>Placeholder</p>
-    </div>
 
 </main>
+
 <script type="module">
     var nameC = document.getElementById('name');
     var text = nameC.innerText;
