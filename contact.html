@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<head>
+<title>Mario's Portfolio</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+
+    @font-face{
+      font-family: Byte;
+      src: url(Fonts/ByteBounce.ttf);
+    }
+    @font-face{
+      font-family: Blocky;
+      src: url(Fonts/BlockBlueprint.ttf);
+    }
+    body {
+      margin: 0;
+      min-height: 200vh;
+      color: white;
+      font-family: monospace;
+      /* Deep emerald animated gradient */
+      background: linear-gradient(darkgreen, maroon, navy, darkgreen);
+      background-size: 400% 400%;
+      animation: flowingGradient 40s ease infinite;
+    }
+
+    @keyframes flowingGradient {
+      0% {
+        background-position: 0% 0%;
+        background-blend-mode: overlay;
+      }
+      25%{
+        background-position: 50% 25%;
+        background-blend-mode: color-dodge;
+      }
+      50% {
+        background-position: 100% 50%;
+        background-blend-mode: color-burn;
+      }
+      75%{
+        background-position: 50% 25%;
+        background-blend-mode: overlay;
+      }
+      100% {
+        background-position: 0% 0%;
+        background-blend-mode: screen;
+      }
+    }
+    #edge-blur-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(8px);
+      -webkit-mask-image: radial-gradient(circle at center, transparent 25%, black 35%);
+      mask-image: radial-gradient(circle at center, transparent 25%, black 35%);
+    }
+
+
+    #background-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 50%;
+      filter: blur(2px);
+      background-size: cover;
+      background-image: url(Images/bg.png);
+      background-blend-mode: lighten;
+    }
+    .content {
+    position: relative;
+    z-index: 1;
+    padding: 20px 20px 0px 20px;
+  }
+    .content img{
+    width: 48.5%;    
+    }
+    .top {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px);
+    background: rgba( 164, 255, 255, 0.15 );
+    z-index: 2;
+  }
+    .box{
+        display: inline-block;
+        background: none;
+        width: 49.3%;
+        padding: 0px 20px 0px 20px;
+        margin: 20px auto;
+    }
+    .nav-links {
+      display: flex;
+      margin-left: 20px;
+      gap: 30px;
+      align-items: center;
+    }
+    .right{
+    float: right;    
+    }
+    .left{
+    float: left;    
+    }
+
+
+    .header-container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .name span{
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(-15px);
+        animation: faceCase 0.7s ease-in forwards;
+        animation-delay:var(--delay);     
+    }
+    @keyframes faceCase{
+    0%{
+        opacity: 0%;    
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0);
+    }  
+    }
+
+
+
+    h1,h2,h3{
+        font-family: Byte;
+    }
+    p,a{
+        color: white;
+        font-family: Blocky;
+        font-size: 30px;    
+    }
+    h1{
+      margin-top: 1px;
+      margin-bottom: 2px;
+      font-size: 70px;
+      color: white;
+    }
+    h2{
+      font-size: 50px;
+      color: white;
+    }
+    h3{
+      font-size: 40px;
+      color: white;
+    }
+    button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 40px;
+      font-family: Blocky;
+      padding: 4px 2px 1px 2px;
+      background-color: transparent;
+      border: 3px solid white;
+      border-bottom: 5px solid white;
+      border-radius: 50%;
+      transition-duration: 0.3s;
+    }
+    button:hover{
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    button:active{
+      border-bottom: 3px solid white;
+    }
+    main{
+      padding-top: 120px;
+    }
+    .custom-line{
+      position: relative;
+      background-color: white;
+      margin-top: 5px;
+      left: -5%;
+      width: 110%;
+      height: 10px;
+    }
+    .linkbutton{
+      float: right;
+      text-decoration: none;
+      color: white;
+    }
+      .linkbutton:hover{
+      color: grey;
+    }
+      .linkbutton:active{
+      color: red;
+    }
+
+    @media (max-width:1598px){
+        .box {
+          width: 100%;
+          padding: 20px;
+          margin: 20px auto;
+          box-sizing: border-box;
+          float: none;          
+        }
+        .header-container{
+            display: inline-block;
+        } 
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="background-canvas"></canvas>
+<div id="edge-blur-overlay"></div>
+
+<div class="content top">
+  <div class="header-container">
+    <h1 id="name" class="name">Mario Simjanoski</h1>
+        <div class="nav-links right">
+            <a class="linkbutton" href="index.html">Projects</a>
+            <a class="linkbutton" href="contact.html">Contact</a>
+            <button class="right" onclick="changeMode()" id="modebutton">🌙</button>
+        </div>
+  </div>
+  <div class="custom-line"></div>
+</div>
+
+<main>
+
+  <div class="content box left">
+        <h2>Contact Information</h2><br>
+        <p>Personal Email: simjanoskimario01@gmail.com<br>
+           Phone Number: +389 78 439 660 (North Macedonia)<br>
+          </p>
+    </div>
+
+</main>
+<script type="module">
+    var nameC = document.getElementById('name');
+    var text = nameC.innerText;
+
+    nameC.innerHTML = "";
+    [...text].forEach((char,index) =>{
+    const span = document.createElement('span');
+    span.innerHTML = char === '  ' ? '&nbsp;' : char;
+    span.style.setProperty('--delay', `${index * 0.1}s`);
+    nameC.appendChild(span);
+    });
+
+    var selection = document.querySelector('#background-canvas');
+    var ticking = false;
+
+    window.addEventListener('scroll', ()=>{
+      if(!ticking){
+        window.requestAnimationFrame(()=>{
+          const scrPos = window.scrollY;
+          selection.style.backgroundPosition = `center ${scrPos * -0.1}px`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    var dm = false;
+    var b = document.querySelectorAll(".box");
+
+    window.changeMode = function(){
+      dm = !dm;
+      if (dm) {
+        document.body.style.backgroundImage = "linear-gradient(green, lime, lightgreen, green)";
+        document.getElementById('background-canvas').style.background = "url(Images/bg1.png)";
+        document.getElementById('background-canvas').style.backgroundBlendMode = "color-burn";
+        document.getElementById('background-canvas').style.opacity = "95%";
+        document.getElementById('modebutton').innerText = "☀️";
+      }
+      else {
+        document.body.style.backgroundImage = "linear-gradient(darkgreen, maroon, navy, darkgreen)";
+        document.getElementById('background-canvas').style.background = "url(Images/bg.png)";
+        document.getElementById('background-canvas').style.backgroundBlendMode = "lighten";
+        document.getElementById('background-canvas').style.opacity = "50%";
+        document.getElementById('modebutton').innerText = "🌙";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
